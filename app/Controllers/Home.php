@@ -11,6 +11,6 @@ class Home extends BaseController
 		$data = [
 			'title' => 'Halaman Home'
 		];
-		return view('layout/Home', $data);
+		return view('Home', $data);
 	}
 }

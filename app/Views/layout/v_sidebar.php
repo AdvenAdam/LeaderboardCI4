@@ -13,14 +13,17 @@
                                 </span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li>    
+                                <li>
                                     <a href="/">Home</a>
                                 </li>
-                                    <li >
+                                <li>
                                     <a href="/siswa">Siswa</a>
                                 </li>
                                 <li>
-                                  <a href="/berita">About</a>
+                                    <a href="/about">About</a>
+                                </li>
+                                <li>
+                                    <a href="/siswa/leaderboard">Leaderboard</a>
                                 </li>
                             </ul>
                         </li>

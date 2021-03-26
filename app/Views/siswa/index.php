@@ -3,7 +3,15 @@
 <div class="page-container">
     <!-- Content Wrapper START -->
     <div class="main-content">
-
+        <div class="page-header">
+            <h2 class="header-title">Data Siswa</h2>
+            <div class="header-sub-title">
+                <nav class="breadcrumb breadcrumb-dash">
+                    <a href="/" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+                    <span class="breadcrumb-item active">Siswa</span>
+                </nav>
+            </div>
+        </div>
         <div class="container">
             <?php if (session()->getFlashdata('success')) { ?>
                 <div class="alert alert-success">
@@ -28,10 +36,10 @@
                                     <tr style=" font-size:15px;">
                                         <th><b>No</th>
                                         <th><b>Nama</th>
-                                        <th><b>Kelas</th>
                                         <th><b>NIM</th>
+                                        <th><b>Kelas</th>
                                         <th><b>Email</th>
-                                        <th><b>Nilai</th>
+                                        <th><b>No HP</th>
                                         <th><b>Aksi</th>
                                     </tr>
                                 </thead>
@@ -44,7 +52,7 @@
                                             <td><?= $i['nim'] ?></td>
                                             <td><?= $i['kelas'] ?></td>
                                             <td><?= $i['email'] ?></td>
-                                            <td><?= $i['nilai'] ?></td>
+                                            <td><?= $i['no_hp'] ?></td>
                                             <td>
                                                 <a class="btn btn-info btn-tone " href="/siswa/detail/<?= $i['nim']; ?>"><i class="anticon anticon-search"></i></a>
                                                 <a class="btn btn-success btn-tone " href="/siswa/edit/<?= $i['nim']; ?>"><i class="anticon anticon-edit"></i></a>
@@ -60,7 +68,7 @@
             </div>
         </div>
     </div>
-
+    <?= $this->include('layout/v_footer.php'); ?>
 </div>
 
 <!-- MOdal info -->

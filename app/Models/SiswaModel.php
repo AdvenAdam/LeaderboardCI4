@@ -17,4 +17,9 @@ class SiswaModel extends Model
 		}
 		return $this->where(['nim' => $nim])->first();
 	}
+
+	public function getPeringkat()
+	{
+		return $this->orderBy('nilai', 'DESC')->findAll();
+	}
 }

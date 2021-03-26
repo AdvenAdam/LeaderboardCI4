@@ -9,8 +9,6 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="/enlink/assets/images/logo/favicon.png">
 
-
-
     <!-- Core css -->
     <link href="/enlink/assets/css/app.min.css" rel="stylesheet">
 
@@ -23,7 +21,6 @@
             <?= $this->include('layout/v_navbar.php'); ?>
             <?= $this->include('layout/v_sidebar.php'); ?>
             <?= $this->rendersection('content'); ?>
-            <?= $this->include('layout/v_footer.php'); ?>
 
         </div>
 
@@ -39,18 +36,24 @@
         <link href="/enlink/assets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
         <!-- Core JS -->
         <script src="/enlink/assets/js/app.min.js"></script>
-        <!-- CKeditor -->
-        <script src="/enlink/assets/vendors/ckeditor/ckeditor/ckeditor.js"></script>
+        <script src="/enlink/assets/js/jquery.inputmask.bundle.min.js"></script>
 
 </body>
 
 </html>
-
-
 <script>
     $('#data-table').DataTable();
 </script>
-
+<script>
+    $('.phone').inputmask({
+        prefix: '(+62)',
+        groupSeparator: "-",
+        alias: "numeric",
+        autoGroup: true,
+        digits: 0,
+        rightAlign: false
+    });
+</script>
 <script>
     function previewImg() {
 

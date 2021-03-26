@@ -3,6 +3,16 @@
 <div class="page-container">
     <!-- Content Wrapper START -->
     <div class="main-content">
+        <div class="page-header">
+            <h2 class="header-title">Edit Data Siswa</h2>
+            <div class="header-sub-title">
+                <nav class="breadcrumb breadcrumb-dash">
+                    <a href="/" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+                    <a href="/siswa" class="breadcrumb-item">Siswa</a>
+                    <span class="breadcrumb-item active">Edit Data Siswa</span>
+                </nav>
+            </div>
+        </div>
         <div class="container">
             <div class="card">
                 <div class="card-body">
@@ -50,7 +60,7 @@
                                 <div class="col-10">
                                     <div class="form-group">
                                         <label>No HP </label>
-                                        <input type="text" name="no_hp" value="<?= (old('no_hp')) ? (old('no_hp')) : $siswa['no_hp'] ?>" class="form-control <?= $validation->hasError('no_hp') ? 'is-invalid' : '' ?>">
+                                        <input type="text" name="no_hp" value="<?= (old('no_hp')) ? (old('no_hp')) : $siswa['no_hp'] ?>" class="phone form-control <?= $validation->hasError('no_hp') ? 'is-invalid' : '' ?>">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('no_hp'); ?>
                                         </div>
@@ -108,5 +118,6 @@
             </div>
         </div>
     </div>
+    <?= $this->include('layout/v_footer.php'); ?>
 </div>
 <?= $this->endsection(); ?>

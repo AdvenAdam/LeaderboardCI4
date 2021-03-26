@@ -4,12 +4,10 @@
     <!-- Content Wrapper START -->
     <div class="main-content">
         <div class="page-header">
-            <h2 class="header-title">Profile</h2>
+            <h2 class="header-title">About</h2>
             <div class="header-sub-title">
                 <nav class="breadcrumb breadcrumb-dash">
-                    <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
-                    <a class="breadcrumb-item" href="#">Pages</a>
-                    <span class="breadcrumb-item active">Profile</span>
+                    <span class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>About</a>
                 </nav>
             </div>
         </div>
@@ -18,7 +16,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5>Bio</h5>
+                            <h5><?= $isi; ?></h5>
                             <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'.</p>
                             <hr>
                             <h5>Specialilty</h5>

@@ -190,4 +190,26 @@ class Siswa extends BaseController
 		session()->setFlashdata('success', 'Data Berhasil Diubah');
 		return redirect()->to('/siswa');
 	}
+
+	public function leaderboard()
+	{
+		$data = [
+			'title' => 'Leaderboard',
+			'siswa' => $this->siswaModel->getPeringkat(),
+		];
+		return view('siswa/leaderboard', $data);
+	}
+	public function tambahNilai($nim)
+	{
+		$dataLama = $this->siswaModel->getSiswa($nim);
+		$nilaiLama = $dataLama['nilai'];
+		$nilaiTambah = $this->request->getVar('nilaiTambah');
+		$nilai = intval($nilaiLama) + intval($nilaiTambah);
+
+		$this->siswaModel->save([
+			'id' 	=> $dataLama['id'],
+			'nilai' => $nilai
+		]);
+		return redirect()->to('/siswa/leaderboard');
+	}
 }
