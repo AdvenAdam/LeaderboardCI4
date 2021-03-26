@@ -7,8 +7,7 @@ $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
-if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
-{
+if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
 	require SYSTEMPATH . 'Config/Routes.php';
 }
 
@@ -22,7 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 
 /*
  * --------------------------------------------------------------------
@@ -33,6 +32,16 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+
+$routes->group('siswa', function ($routes) {
+	$routes->get('', 'siswa\Siswa::index');
+	$routes->get('input', 'siswa\Siswa::input');
+	$routes->get('edit/(:any)', 'siswa\Siswa::edit/$1');
+	$routes->get('detail/(:any)', 'siswa\Siswa::detail/$1');
+	$routes->get('delete/(:any)', 'siswa\Siswa::delete/$1');
+	$routes->POST('update/(:any)', 'siswa\Siswa::update/$1');
+	$routes->POST('save', 'siswa\Siswa::save');
+});
 
 /*
  * --------------------------------------------------------------------
@@ -47,7 +56,6 @@ $routes->get('/', 'Home::index');
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
-if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
-{
+if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
