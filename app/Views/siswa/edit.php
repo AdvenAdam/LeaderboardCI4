@@ -33,7 +33,7 @@
                                 <div class="col-10">
                                     <div class="form-group">
                                         <label>Nama</label>
-                                        <input type="text" name="nama" value=<?= (old('nama')) ? (old('nama')) : $siswa['nama'] ?>" class="form-control <?= $validation->hasError('nama') ? 'is-invalid' : '' ?>">
+                                        <input type="text" name="nama" value="<?= (old('nama')) ? (old('nama')) : $siswa['nama'] ?>" class="form-control <?= $validation->hasError('nama') ? 'is-invalid' : '' ?>">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('nama'); ?>
                                         </div>

@@ -16,9 +16,19 @@ class Siswa extends BaseController
 
 	public function index()
 	{
+		$currentPage = $this->request->getVar('page_siswa') ? $this->request->getVar('page_siswa') : 1;
+		$keyword = $this->request->getVar('keyword');
+		if ($keyword) {
+			$siswa = $this->siswaModel->search($keyword);
+		} else {
+			$siswa = $this->siswaModel;
+		}
+		$pager = \Config\Services::pager();
 		$data = [
 			'title' => 'Halaman Siswa',
-			'siswa' => $this->siswaModel->getSiswa(),
+			'siswa' => $this->siswaModel->paginate(5, 'siswa'),
+			'pager' => $this->siswaModel->pager,
+			'currentPage' => $currentPage
 		];
 
 		return view('siswa/index', $data);
@@ -74,7 +84,7 @@ class Siswa extends BaseController
 		} else {
 			$namaFoto = $fileFoto->getRandomName();
 			$fileFoto->move('foto', $namaFoto);
-			\Config\Services::image()
+			$image = \Config\Services::image()
 				->withFile('foto/' . $namaFoto)
 				->resize(500, 500)
 				->save('foto/' . $namaFoto);
@@ -99,6 +109,7 @@ class Siswa extends BaseController
 			'siswa' => $this->siswaModel->getSiswa($nim),
 			'title' => 'View Data'
 		];
+
 		return view('siswa/detail', $data);
 	}
 	public function delete($nim)

@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class TblSiswa extends Migration
+class User extends Migration
 {
 	public function up()
 	{
@@ -15,36 +15,21 @@ class TblSiswa extends Migration
 				'unsigned'       => true,
 				'auto_increment' => true,
 			],
-			'nim'       => [
+			'Userrnam'       => [
 				'type'       => 'VARCHAR',
 				'constraint' => '20',
 			],
-			'nama' => [
+			'Password' => [
 				'type' => 'varchar',
 				'constraint' => '20',
 			],
-			'kelas'       => [
+			'Avatar'       => [
 				'type'       => 'VARCHAR',
 				'constraint' => '20',
 			],
-			'email' => [
+			'Email' => [
 				'type' => 'varchar',
 				'constraint' => '100',
-			],
-			'no_hp'       => [
-				'type'       => 'VARCHAR',
-				'constraint' => '20',
-			],
-			'alamat' => [
-				'type' => 'text',
-			],
-			'nilai'       => [
-				'type'       => 'INT',
-				'constraint' => '5',
-			],
-			'foto'       => [
-				'type'       => 'Varchar',
-				'constraint' => '225',
 			],
 			'created_at'       => [
 				'type'       => 'datetime',
@@ -54,10 +39,11 @@ class TblSiswa extends Migration
 			],
 		]);
 		$this->forge->addKey('id', true);
-		$this->forge->createTable('tbl_siswa');
+		$this->forge->createTable('tbl_cth');
 	}
 
 	public function down()
 	{
+		$this->forge->dropTable('tbl_cth');
 	}
 }

@@ -36,10 +36,11 @@ $routes->get('/about', 'About::index');
 
 $routes->group('siswa', function ($routes) {
 	$routes->get('', 'siswa\Siswa::index');
+	$routes->POST('', 'siswa\Siswa::index');
 	$routes->get('input', 'siswa\Siswa::input');
 	$routes->get('leaderboard', 'siswa\Siswa::leaderboard');
 	$routes->get('edit/(:any)', 'siswa\Siswa::edit/$1');
-	$routes->get('detail/(:any)', 'siswa\Siswa::detail/$1');
+	$routes->get('detail/(:any)/(:segment)', 'siswa\Siswa::detail/$1/$2');
 	$routes->get('delete/(:any)', 'siswa\Siswa::delete/$1');
 	$routes->POST('tambahNilai/(:any)', 'siswa\Siswa::tambahNilai/$1');
 	$routes->POST('update/(:any)', 'siswa\Siswa::update/$1');

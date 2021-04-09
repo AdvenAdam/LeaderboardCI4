@@ -22,4 +22,9 @@ class SiswaModel extends Model
 	{
 		return $this->orderBy('nilai', 'DESC')->findAll();
 	}
+
+	public function search($keyword)
+	{
+		return $this->like('nama', $keyword)->find();
+	}
 }

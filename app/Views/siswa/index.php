@@ -26,12 +26,26 @@
             <?php } ?>
             <div class="card">
                 <div class="card-header pt-4  pb-4">
-                    <a class="btn btn-primary" href="/siswa/input"> Input Data</a>
+                    <div class="row">
+                        <div class="col-6">
+                            <a class="btn btn-primary" href="/siswa/input"> Input Data</a>
+                        </div>
+                        <div class="col-6 pull-right">
+                            <form action="" method="POST" class="d-inline">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Keyword" name="keyword">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="submit" name="submit">Cari</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col">
-                            <table id="data-table" class="table">
+                            <table class="table">
                                 <thead>
                                     <tr style=" font-size:15px;">
                                         <th><b>No</th>
@@ -54,14 +68,18 @@
                                             <td><?= $i['email'] ?></td>
                                             <td><?= $i['no_hp'] ?></td>
                                             <td>
-                                                <a class="btn btn-info btn-tone " href="/siswa/detail/<?= $i['nim']; ?>"><i class="anticon anticon-search"></i></a>
-                                                <a class="btn btn-success btn-tone " href="/siswa/edit/<?= $i['nim']; ?>"><i class="anticon anticon-edit"></i></a>
+                                                <a class="btn btn-info btn-tone" href="/siswa/detail/<?= $i['nim']; ?>"><i class="anticon anticon-search"></i></a>
+                                                <a class="btn btn-success btn-tone" href="/siswa/edit/<?= $i['nim']; ?>"><i class="anticon anticon-edit"></i></a>
                                                 <button class="btn btn-danger btn-tone" data-toggle="modal" data-target="#konfirmasidelete<?= $i['nim'] ?>"><i class=" anticon anticon-delete"></i> </button>
                                             </td>
                                         </tr>
                                     <?php } ?>
+                                    <?php if ($siswa == null) {
+                                        echo '<td colspan="6"><center>data tidak ditemukan</center></td>';
+                                    } ?>
                                 </tbody>
                             </table>
+                            <?= $pager->links('siswa', 'custom_pager') ?>
                         </div>
                     </div>
                 </div>
