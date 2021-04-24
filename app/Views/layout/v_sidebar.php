@@ -2,30 +2,37 @@
             <div class="side-nav">
                 <div class="side-nav-inner">
                     <ul class="side-nav-menu scrollable">
-                        <li class="nav-item dropdown">
-                            <a class="dropdown-toggle" href="javascript:void(0);">
+                        <li class="nav-item">
+                            <a href="/">
                                 <span class="icon-holder">
                                     <i class="anticon anticon-dashboard"></i>
                                 </span>
-                                <span class="title">Menu</span>
-                                <span class="arrow">
-                                    <i class="arrow-icon"></i>
-                                </span>
+                                <span class="title">Home</span>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="/">Home</a>
-                                </li>
-                                <li>
-                                    <a href="/siswa">Siswa</a>
-                                </li>
-                                <li>
-                                    <a href="/about">About</a>
-                                </li>
-                                <li>
-                                    <a href="/siswa/leaderboard">Leaderboard</a>
-                                </li>
-                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/siswa">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-team"></i>
+                                </span>
+                                <span class="title">Siswa</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/about">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-question"></i>
+                                </span>
+                                <span class="title">About</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/siswa/leaderboard">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-fund"></i>
+                                </span>
+                                <span class="title">Leaderboard</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
